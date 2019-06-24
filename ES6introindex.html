@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<head>
+
+
+    <script>
+        //ES6 features
+        let demo = 'angular';
+        {
+            var b = 10;//stays in scope for entire applicaiton(global)
+            let a = 5; // only bloak only
+        }
+        console.log(a);//reference error
+        console.log(b);
+
+        //1. let can be changed
+        // const cannot be changed
+
+        //2. arrow fucntion =>
+        //replaces below scope(this or that) and has implicit return value
+        handlClick = () => {
+
+        }
+
+        function demo() {
+            var that = this.
+                document.getElementById('button1').addEventListener('click', function () {
+                    that.handlClick();// scope complexitoies
+                })
+        }
+
+        // implicit return
+        const arr = [3, 4, 5, 6];
+        const data = arr.map(x => x * x);
+
+        //3. rest operator ... use rest operator for dynamic # of parameters in function definition
+        function add1(...args) { console.log(args) } // converts the prameteres into array
+        function add(x, y) { return x + y }
+
+        //4. spread operator ... use in fucntion call
+        Math.max(...[2, 3, 4]);
+        Math.max(2, 3, 4);
+        var s = [3, 4, 5];
+        var d = [6, 7, 8];
+        [...s, ...d];
+        // (6)[3, 4, 5,6, 7, 8]
+
+        //5. default parameters
+        function addnumbers(x = 5, y = 7) {
+            return x + y;
+        }
+
+        function addnumbers(x, y) {
+            var a = x || 5;//default values
+            var b = y || 6;
+            return a + b;
+        }
+        //6. template literals
+        function stringManipultaion() {
+            var name = 'arvin',
+                gender = 'male';
+            return `my name is ${name} and my gender is ${gender}`;
+        }
+        //multi lines(with ``)
+        function printMulti() {
+            return `my name is arvin 
+                    and i am hanlding angular sessions`;
+        }
+        //7. destructing
+        function destruct() {
+            var months = ['jan', 'feb', 'mar', 'apr'];
+            var nextmMnths = ['jan', 'feb'];
+            //firstmonth = months[0];
+            //consol.log('the current month is', firstmonth );
+
+            const [firstmonth, secmonth, thirdmonth] = months;
+            const [Fmonth, smonth, tmonth] = nextmMnths;
+            console.log('the current month is', firstmonth);
+            console.log('the current month is', secmonth);
+            console.log('the current month is', smonth);
+            console.log('the current month is', tmonth);//undefined
+        }
+
+        //8. classes
+        
+        //ES5 
+        function Person(name) {
+            this.name = name;
+        }
+        //prototype inheritance ES5 extension
+        Person.prototype.demo = function () {
+            return 'person name is' + this.name;
+        }
+        var fg = Person('arvin');//es5
+        fg.demo();
+
+        //ES6 class 
+        class Person1 {
+            constructor(name) {
+                this.name = name;
+            }
+            describe() {
+                return 'the person name is ' + this.name;
+            }
+        }
+        var fg1 = new Person1('arvin'); 
+        fg1.describe();
+
+
+        //9. string methods
+        var str = 'arvin';
+        str.startsWith('a');//true
+        str.startsWith('A');//false
+        str.includes('r');//true
+        str.endsWith('n');//true
+
+    </script>
+
+</head>
+
+
+
+<body>
+    <div>
+        <button id="button1"></button>
+    </div>
+</body>
